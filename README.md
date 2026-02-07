@@ -3,7 +3,7 @@ ExpenseSense – Smart Expense Tracker 💰
 A responsive web application to help users track personal expenses and visualize spending patterns with interactive charts.
 
 ## Live Demo 🚀
-Try ExpenseSense here: [Live Demo](startling-cajeta-3048f6.netlify.app)
+Try ExpenseSense here: (startling-cajeta-3048f6.netlify.app)
 
 
 Features ✨
@@ -20,7 +20,7 @@ Fully responsive UI for desktops, tablets, and mobile devices.
 
 Demo 🎬
 
-[screenshots/dashboard.png]
+[dashboard.png]
 
 Tech Stack 🛠
 
@@ -38,7 +38,7 @@ Installation & Usage 🚀
 
 Clone the repository:
 
-git clone https://github.com/yourusername/ExpenseSense.git
+git clone https://github.com/sumitkumar044/ExpenseSense.git
 
 
 Open index.html in your browser.
