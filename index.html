@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseSense - Smart Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-wallet"></i>
+                <h1>ExpenseSense</h1>
+            </div>
+            <div class="header-actions">
+                <button onclick="exportCSV()" class="btn-export" title="Export Data">
+                    <i class="fas fa-download"></i> CSV
+                </button>
+                <div class="filter-group">
+                    <select id="monthFilter" onchange="filterMonth()">
+                        <option value="">All Time</option>
+                        <option value="2026-02">Feb 2026</option>
+                        <option value="2026-01">Jan 2026</option>
+                    </select>
+                </div>
+                <label class="dark-toggle">
+                    <input type="checkbox" id="darkToggle">
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+            <div class="card income-card">
+                <i class="fas fa-arrow-up"></i>
+                <div>
+                    <h3>Total Income</h3>
+                    <div id="totalIncome" class="amount">₹0</div>
+                </div>
+            </div>
+            <div class="card expense-card">
+                <i class="fas fa-arrow-down"></i>
+                <div>
+                    <h3>Total Expense</h3>
+                    <div id="totalExpense" class="amount">₹0</div>
+                </div>
+            </div>
+            <div class="card balance-card">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <h3>Balance</h3>
+                    <div id="balance" class="amount">₹0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart & Form -->
+        <div class="main-content">
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-pie"></i> Expense Breakdown</h3>
+                <canvas id="expenseChart"></canvas>
+            </div>
+            
+            <div class="form-container">
+                <h3><i class="fas fa-plus-circle"></i> Add Transaction</h3>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-rupee-sign"></i> Amount</label>
+                        <input type="number" id="amount" placeholder="500" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-exchange-alt"></i> Type</label>
+                            <select id="type" required>
+                                <option value="income">Income (+)</option>
+                                <option value="expense">Expense (-)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tags"></i> Category</label>
+                            <select id="category" required>
+                                <option value="Food">🍔 Food</option>
+                                <option value="Travel">🚗 Travel</option>
+                                <option value="Bills">💡 Bills</option>
+                                <option value="Salary">💼 Salary</option>
+                                <option value="Shopping">🛒 Shopping</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Date</label>
+                        <input type="date" id="date">
+                    </div>
+                    <button type="submit" class="btn-add">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Transactions -->
+        <div class="transactions-section">
+            <h3><i class="fas fa-list"></i> Recent Transactions</h3>
+            <div class="table-container">
+                <ul id="transactionList" class="transaction-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
